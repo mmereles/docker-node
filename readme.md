@@ -11,9 +11,9 @@
 
 ## Get Started with AWS CodeBuild
 
-the most importants steps for build a docker image in Codebuild are the Role that work as a account, the GitHub repositoy with the key and the environment variables
+the most importants steps for build a docker image in Codebuild are the Role that work as a account, the GitHub repositoy with the key, set as Priviledge the OS that build the image and the environment variables
 
-- Source Section (Gitbuh)
+- Source Section (Github)
   - add the key and then add the Github repository
 - Generate the role with a custom name
 - Add the environment variables, for this demo i put as plaintext you can use AWS Secret Manager
@@ -21,6 +21,11 @@ the most importants steps for build a docker image in Codebuild are the Role tha
   - `AWS_ACCOUNT_ID` = Account ID --> you can extract this from your AWS Profile
   - `IMAGE_REPO_NAME` = Name of your ECR repo
   - `IMAGE_TAG` = ID tag or latest
+
+- set as Priviledge your OS Environment for build the Docker Image
+
+<img width="548" alt="image" src="https://user-images.githubusercontent.com/60193314/198839450-eab83f1c-616a-4621-95ff-aac4b93a580d.png">
+
   
   then you need add your BuildSpec script, you can upload or you can paste in the same screen
   
@@ -73,6 +78,12 @@ Save your CodeBuild Project, but dont run yet because you need edit your policy 
   "Version": "2012-10-17"
 }
 ```
+Perfect!.... once fill the policy, save the changes and run your Code Build Project
+
+Your finally can see the Docker image in your AWS ECR
+
+<img width="715" alt="image" src="https://user-images.githubusercontent.com/60193314/198839625-8d4030b1-52ee-4cd7-8fdc-5c31d1e4ee52.png">
+
 
 
 
